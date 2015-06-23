@@ -21,14 +21,13 @@ fn = (function(j) {
         },
         sort: function(array, prop1, prop2, asc) {
             array = array.sort(function(a, b) {
-                if (asc){
-                    if(prop2!=null && a[prop1]==b[prop1]){
+                if (asc) {
+                    if (prop2 != null && a[prop1] == b[prop1]) {
                         return (a[prop2] > b[prop2]) ? 1 : ((a[prop2] < b[prop2]) ? -1 : 0);
                     }
                     return (a[prop1] < b[prop1]) ? 1 : ((a[prop1] > b[prop1]) ? -1 : 0);
-                }
-                else{
-                    if(prop2!=null && a[prop1]==b[prop1]){
+                } else {
+                    if (prop2 != null && a[prop1] == b[prop1]) {
                         return (a[prop2] < b[prop2]) ? 1 : ((a[prop2] > b[prop2]) ? -1 : 0);
                     }
                     return (b[prop1] < a[prop1]) ? 1 : ((b[prop1] > a[prop1]) ? -1 : 0);
@@ -60,7 +59,8 @@ fn = (function(j) {
 })(jQuery);
 
 
-;(function(j) {
+;
+(function(j) {
     j(function() {
         /*j.ajax({
             url: './files.json'
@@ -103,5 +103,48 @@ fn = (function(j) {
             }
             fn.getSelection();
         });
+
+        $.contextMenu({
+            selector: 'file, folder',
+            callback: function(key, options) {
+                var m = "clicked: " + key;
+                window.console && console.log(m) || alert(m);
+            },
+            items: {
+                
+                "cut": {
+                    name: "Cut",
+                    icon: "cut"
+                },
+                "copy": {
+                    name: "Copy",
+                    icon: "copy"
+                },
+                "paste": {
+                    name: "Paste",
+                    icon: "paste"
+                },
+                "delete": {
+                    name: "Delete",
+                    icon: "delete"
+                },
+                "rename": {
+                    name: "Rename",
+                    icon: "edit"
+                },
+                "properties": {
+                    name: "Properties",
+                    icon: "quit"
+                }
+            }
+        });
+
+        $('.context-menu-one').on('click', function(e) {
+            console.log('clicked', this);
+        })
+
+
+
+
     });
 })(jQuery);

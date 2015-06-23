@@ -77,4 +77,13 @@ file[extension]:before {
     top: 35px;
     right: 22px;
 }
+
+.context-menu-item span{
+    color: black !important;
+}
+.context-menu-item.hover span{
+    color: white !important;
+}
 /* END OF FILE MANAGER STYLES */
+
+
