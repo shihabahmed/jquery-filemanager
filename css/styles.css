@@ -1,0 +1,80 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+body * {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+.explorer {
+    height: 100%;
+    overflow-y: auto;
+}
+/* FILE MANAGER STYLES */
+
+folder,
+file {
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 45px 45px;
+    font-size: 11px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    cursor: default;
+    width: 75px;
+    padding-top: 60px;
+    margin: 5px;
+    vertical-align: top;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+folder:hover,
+file:hover {
+    border-color: #CEE8FC;
+    background-color: #F1F7FC;
+}
+
+folder.selected,
+file.selected {
+    border-color: #96D1FC;
+    background-color: #E2F3FF;
+}
+
+folder {
+    background-image: url(../images/folder.png);
+}
+
+file {
+    background-image: url(../images/file.png);
+}
+
+file[extension] {
+    position: relative;
+}
+
+file[extension]:before {
+    font-size: 11px;
+    color: #fff;
+    content: attr(extension);
+    position: absolute;
+    top: 35px;
+    right: 22px;
+}
+/* END OF FILE MANAGER STYLES */
