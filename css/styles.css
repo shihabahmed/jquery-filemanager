@@ -11,9 +11,9 @@ html {
 body {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 body * {
@@ -24,6 +24,16 @@ body * {
 .explorer {
     height: 100%;
     overflow-y: auto;
+    position: relative;
+}
+
+.explorer .bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
 }
 /* FILE MANAGER STYLES */
 
@@ -42,6 +52,7 @@ file {
     margin: 5px;
     vertical-align: top;
     border: 1px solid transparent;
+    position: relative;
     box-sizing: border-box;
 }
 
@@ -78,12 +89,24 @@ file[extension]:before {
     right: 22px;
 }
 
-.context-menu-item span{
-    color: black !important;
+.iw-mIcon {
+    width: 15px;
+    height: 15px;
+    left: 6px;
+    top: 4px;
 }
-.context-menu-item.hover span{
-    color: white !important;
+
+.iw-contextMenu {
+    background-color: white;
+}
+
+.iw-contextMenu li {
+    font-size: 11px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+li.iw-mSelected {
+    background-color: lightblue;
 }
 /* END OF FILE MANAGER STYLES */
-
-

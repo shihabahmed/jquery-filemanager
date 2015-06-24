@@ -1,6 +1,103 @@
 ﻿document.createElement('folder');
 document.createElement('file');
 
+
+var generalMenu = [
+    {
+        name: 'refresh',
+        img: 'images/create.png',
+        title: 'create button',
+        fun: function() {
+            alert('i am add button')
+        }
+    },
+    {
+        name: 'sort',
+        img: 'images/update.png',
+        title: 'update button',
+        subMenu: [
+            {
+                name: 'sort by name',
+                title: 'It will merge row',
+                img: 'images/merge.png',
+                fun: function() {
+                    fn.renderSorted('name', true);
+                }
+            }, {
+                name: 'sort by file type',
+                title: 'It will replace row',
+                img: 'images/replace.png',
+                fun: function() {
+                    fn.renderSorted('extension', true);
+                }  
+            }
+        ]
+    }
+];
+
+var menu = [
+    {
+        name: 'create',
+        img: 'images/create.png',
+        title: 'create button',
+        fun: function() {
+            alert('i am add button')
+        }
+    }, {
+        name: 'update',
+        img: 'images/update.png',
+        title: 'update button',
+        subMenu: [
+            {
+                name: 'merge',
+                title: 'It will merge row',
+                img: 'images/merge.png',
+                fun: function() {
+                    alert('It will merge row')
+                }
+            }, {
+                name: 'replace',
+                title: 'It will replace row',
+                img: 'images/replace.png',
+                subMenu: [
+                    {
+                        name: 'replace top 100',
+                        img: 'images/top.png',
+                        fun: function() {
+                            alert('It will replace top 100 rows');
+                        }
+                    }, {
+                        name: 'replace all',
+                        img: 'images/all.png',
+                        fun: function() {
+                            alert('It will replace all rows');
+                        }
+                    }
+                ]
+            }
+        ]
+    }, {
+        name: 'delete',
+        img: 'images/delete.png',
+        title: 'delete button',
+        subMenu: [
+            {
+                'name': 'soft delete',
+                img: 'images/soft_delete.png',
+                fun: function() {
+                    alert('You can recover back');
+                }
+            }, {
+                'name': 'hard delete',
+                img: 'images/hard_delete.png',
+                fun: function() {
+                    alert('It will delete permanently');
+                }
+            }
+        ]
+    }
+];
+
 var doc, explorer,
     folderTag, fileTag, tag,
     CTRL = false,
@@ -10,6 +107,10 @@ var doc, explorer,
 
 fn = (function(j) {
     return {
+        initContextMenu: function() {
+            j('.explorer .bg').contextMenu(generalMenu, { triggerOn:'click', mouseClick: 'right' });
+            j('folder, file').contextMenu(menu, { triggerOn:'click', mouseClick: 'right' });
+        },
         getSelection: function() {
             selection = [];
             var selectedItems = explorer.find('.selected'),
@@ -35,6 +136,8 @@ fn = (function(j) {
             });
         },
         renderExplorer: function(exp, filesArray) {
+           //   exp.empty();
+            exp.html('<div class="bg"></div>');
             for (var i = 0; i < filesArray.length; i++) {
                 var file = filesArray[i];
                 if (file.type == 'folder') {
@@ -54,6 +157,11 @@ fn = (function(j) {
 
                 exp.append(tag);
             }
+            fn.initContextMenu();
+        },
+        renderSorted: function(sortBy, asc) {
+            fn.sort(files, 'type', sortBy, asc);
+            fn.renderExplorer(explorer, files);
         }
     }
 })(jQuery);
@@ -104,47 +212,9 @@ fn = (function(j) {
             fn.getSelection();
         });
 
-        $.contextMenu({
-            selector: 'file, folder',
-            callback: function(key, options) {
-                var m = "clicked: " + key;
-                window.console && console.log(m) || alert(m);
-            },
-            items: {
-                
-                "cut": {
-                    name: "Cut",
-                    icon: "cut"
-                },
-                "copy": {
-                    name: "Copy",
-                    icon: "copy"
-                },
-                "paste": {
-                    name: "Paste",
-                    icon: "paste"
-                },
-                "delete": {
-                    name: "Delete",
-                    icon: "delete"
-                },
-                "rename": {
-                    name: "Rename",
-                    icon: "edit"
-                },
-                "properties": {
-                    name: "Properties",
-                    icon: "quit"
-                }
-            }
-        });
 
-        $('.context-menu-one').on('click', function(e) {
-            console.log('clicked', this);
-        })
-
-
-
+        //Calling context menu
+        fn.initContextMenu();
 
     });
 })(jQuery);
