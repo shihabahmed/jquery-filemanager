@@ -109,4 +109,9 @@ file[extension]:before {
 li.iw-mSelected {
     background-color: lightblue;
 }
+.ui-draggable-dragging{
+    background-color: transparent !important;
+    /*border:none;*/
+    z-index: 999;
+}
 /* END OF FILE MANAGER STYLES */

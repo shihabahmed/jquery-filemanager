@@ -2,21 +2,21 @@ var files = [
 	{
 		"id": 1,
 		"name": "folder1",
-		"type": "folder",
+		"type": "directory",
 		"extension": "",
 		"path": "/folder1"
 	},
 	{
 		"id": 2,
 		"name": "folder2",
-		"type": "folder",
+		"type": "directory",
 		"extension": "",
 		"path": "/folder2"
 	},
 	{
 		"id": 3,
 		"name": "folder3",
-		"type": "folder",
+		"type": "directory",
 		"extension": "",
 		"path": "/folder3"
 	},
@@ -44,21 +44,21 @@ var files = [
 	{
 		"id": 7,
 		"name": "folder4",
-		"type": "folder",
+		"type": "directory",
 		"extension": "",
 		"path": "/folder4"
 	},
 	{
 		"id": 8,
 		"name": "folder5",
-		"type": "folder",
+		"type": "directory",
 		"extension": "",
 		"path": "/folder5"
 	},
 	{
 		"id": 9,
 		"name": "folder6",
-		"type": "folder",
+		"type": "directory",
 		"extension": "",
 		"path": "/folder6"
 	},
@@ -82,5 +82,12 @@ var files = [
 		"type": "file",
 		"extension": "pdf",
 		"path": "/pdf2.pdf"
+	},
+	{
+		"id": 13,
+		"name": "file3",
+		"type": "file",
+		"extension": "pdf",
+		"path": "/file3.pdf"
 	}
 ];
