@@ -1,6 +1,36 @@
 ﻿document.createElement('folder');
 document.createElement('file');
 
+function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight();
+    var w1 = $div1.outerWidth();
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight();
+    var w2 = $div2.outerWidth();
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+}
+
+function collidingWhom(knownElem, currentID) {
+    $('folder').each(function() {
+        var thisID = "#" + $(this).attr("id");
+        if (collision(knownElem, $(thisID))) {
+            if (currentID != $(this).attr("id")) {
+                $(this).addClass('selected').siblings().removeClass('selected');
+            }
+        }
+
+    });
+}
+
 var generalMenu = [{
     name: 'refresh',
     img: 'images/create.png',
@@ -95,15 +125,15 @@ fn = (function(j) {
     return {
         initContextMenu: function() {
             j('.explorer .bg').contextMenu(generalMenu, {
-                triggerOn: 'click'
-                , mouseClick: 'right'
+                triggerOn: 'click',
+                mouseClick: 'right'
             });
             j('folder, file').contextMenu(menu, {
-                triggerOn: 'click'
-                , mouseClick: 'right'
+                triggerOn: 'click',
+                mouseClick: 'right'
             });
+            fn.drag();
         },
-
         getSelection: function() {
             selection = [];
             var selectedItems = explorer.find('.selected'),
@@ -113,7 +143,6 @@ fn = (function(j) {
                 selection.push(item.attr('id'));
             }
         },
-
         sort: function(array, propArray, asc) {
             array = array.sort(function(a, b) {
                 if (asc) {
@@ -134,8 +163,8 @@ fn = (function(j) {
                 return 0;
             });
         },
-
         renderExplorer: function(exp, filesArray) {
+            //   exp.empty();
             exp.html('<div class="bg"></div>');
             for (var i = 0; i < filesArray.length; i++) {
                 var file = filesArray[i];
@@ -157,31 +186,29 @@ fn = (function(j) {
                 exp.append(tag);
             }
             fn.initContextMenu();
-
-            j('file,folder').draggable({
-                revert: true
-                /*, drag: function(event, ui) {
-                    //
-                }*/
-            });
-
-            j('folder').droppable({
-                hoverClass: 'selected'
-                , drop: function(event, ui) {
-                    fn.drop(j(ui.draggable[0]), j(this));
-                }
-            });
+            fn.drag();
         },
-
         renderSorted: function(sortBy, asc) {
             fn.sort(files, sortBy, asc);
             fn.renderExplorer(explorer, files);
         },
+        drag: function() {
+            j('file,folder').draggable({
 
-        drop: function(item, container) {
-            console.clear();
-            console.log(item.data());
-            console.log(container.data());
+                stop: function(event, ui) {
+                    j(this).css({
+                        'left': 'auto',
+                        'right': 'auto',
+                        'top': 'auto',
+                        'bottom': 'auto'
+                    });
+                },
+                drag: function(event, ui) {
+                    var draggedID = j(this).attr("id");
+                    var currentDragged = j('#' + draggedID);
+                    collidingWhom(currentDragged, draggedID);
+                }
+            });
         }
     }
 })(jQuery);
@@ -232,7 +259,11 @@ fn = (function(j) {
             fn.getSelection();
         });
 
+
+
+
         //Calling context menu
         fn.initContextMenu();
+
     });
 })(jQuery);

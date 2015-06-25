@@ -111,7 +111,7 @@ li.iw-mSelected {
 }
 .ui-draggable-dragging{
     background-color: transparent !important;
-    /*border:none;*/
+    border:none;
     z-index: 999;
 }
 /* END OF FILE MANAGER STYLES */
