@@ -1,0 +1,8 @@
+{
+  "name": "jquery-file-manager",
+  "version": "0.0.1",
+  "description": "jQuery file manager plugin",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
