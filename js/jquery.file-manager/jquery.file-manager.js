@@ -98,7 +98,7 @@ var contextmenu = {
     ]
 };
 
-var doc, explorer,
+var doc, explorer, files,
     folderTag, fileTag, tag,
     CTRL = false,
     CMND = false,
@@ -201,7 +201,9 @@ fn = (function(j) {
 })(jQuery);
 
 
-var fileManager = function(files, wrapper) {
+var fileManager = function(jsonData, wrapper) {
+    files = jsonData;
+
     (function(j) {
 
         doc = j(document).keydown(function(e) {
