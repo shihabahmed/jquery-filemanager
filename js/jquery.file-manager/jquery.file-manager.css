@@ -18,14 +18,16 @@ file {
 }
 
 folder:hover,
-file:hover {
-    border-color: #CEE8FC;
+file:hover,
+folder.ui-selecting, file.ui-selecting {
+    border: 1px solid #CEE8FC;
     background-color: rgba(0, 139, 255, 0.06);
 }
 
-folder.selected,
-file.selected {
-    border-color: #96D1FC;
+folder.ui-selected,
+file.ui-selected,
+.ui-selectable-helper {
+    border: 1px solid #96D1FC;
     background-color: rgba(0, 149, 255, 0.11);
 }
 

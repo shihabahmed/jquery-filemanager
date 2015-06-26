@@ -121,12 +121,14 @@ fn = (function(j) {
 
         getSelection: function() {
             selection = [];
-            var selectedItems = explorer.find('.selected'),
+            var selectedItems = explorer.find('.ui-selected'),
                 item;
             for (var a = 0; a < selectedItems.length; a++) {
                 item = selectedItems.eq(a);
                 selection.push(item.attr('id'));
             }
+            console.clear();
+            console.log(selection);
         },
 
         sort: function(array, propArray, asc) {
@@ -172,9 +174,17 @@ fn = (function(j) {
 
                 explr.append(tag);
             }
+
             fn.initContextMenu();
 
-            j('file,folder').draggable({
+            explr.selectable({
+                filter: 'file, folder',
+                stop: function( event, ui ) {
+                    fn.getSelection();
+                }
+            });
+
+            j('file, folder').draggable({
                 revert: true,
                 delay: 200
             });
@@ -222,10 +232,10 @@ var fileManager = function(jsonData, wrapper) {
         doc.delegate('folder, file', 'click', function() {
             var el = j(this);
             if (CTRL || CMND) {
-                el.toggleClass('selected');
+                el.toggleClass('ui-selected');
             } else {
-                el.siblings().removeClass('selected');
-                el.addClass('selected');
+                el.siblings().removeClass('ui-selected');
+                el.addClass('ui-selected');
             }
 
             fn.getSelection();
@@ -237,7 +247,7 @@ var fileManager = function(jsonData, wrapper) {
 
         explorer.click(function() {
             if (!CTRL && !CMND) {
-                j('.selected').removeClass('selected');
+                j('.ui-selected').removeClass('ui-selected');
             }
             fn.getSelection();
         });
