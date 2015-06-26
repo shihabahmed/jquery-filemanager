@@ -20,13 +20,13 @@ file {
 folder:hover,
 file:hover {
     border-color: #CEE8FC;
-    background-color: #F1F7FC;
+    background-color: rgba(0, 139, 255, 0.06);
 }
 
 folder.selected,
 file.selected {
     border-color: #96D1FC;
-    background-color: #E2F3FF;
+    background-color: rgba(0, 149, 255, 0.11);
 }
 
 folder {
