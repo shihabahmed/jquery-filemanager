@@ -24,15 +24,15 @@
 		"id": 4,
 		"name": "file1",
 		"type": "file",
-		"extension": "txt",
-		"path": "/file1.txt"
+		"extension": "doc",
+		"path": "/file1.doc"
 	},
 	{
 		"id": 5,
 		"name": "file2",
 		"type": "file",
-		"extension": "txt",
-		"path": "/file2.txt"
+		"extension": "docx",
+		"path": "/file2.docx"
 	},
 	{
 		"id": 6,
@@ -66,15 +66,15 @@
 		"id": 10,
 		"name": "file4",
 		"type": "file",
-		"extension": "txt",
-		"path": "/file4.txt"
+		"extension": "doc",
+		"path": "/file4.doc"
 	},
 	{
 		"id": 11,
 		"name": "file5",
 		"type": "file",
-		"extension": "txt",
-		"path": "/file5.txt"
+		"extension": "pdf",
+		"path": "/file5.pdf"
 	},
 	{
 		"id": 12,
@@ -89,5 +89,33 @@
 		"type": "file",
 		"extension": "pdf",
 		"path": "/file3.pdf"
+	},
+	{
+		"id": 14,
+		"name": "my movie 1",
+		"type": "file",
+		"extension": "mp4",
+		"path": "/my%20movie%201.pdf"
+	},
+	{
+		"id": 15,
+		"name": "Birthday",
+		"type": "file",
+		"extension": "avi",
+		"path": "/Birthday.avi"
+	},
+	{
+		"id": 16,
+		"name": "Birthday",
+		"type": "file",
+		"extension": "png",
+		"path": "/Birthday.png"
+	},
+	{
+		"id": 17,
+		"name": "abc",
+		"type": "file",
+		"extension": "jpg",
+		"path": "/abc.jpg"
 	}
 ]

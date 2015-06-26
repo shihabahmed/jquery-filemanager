@@ -37,7 +37,7 @@ file {
     background-image: url(images/file.png);
 }
 
-file[extension] {
+/*file[extension] {
     position: relative;
 }
 
@@ -48,4 +48,16 @@ file[extension]:before {
     position: absolute;
     top: 35px;
     right: 22px;
+}*/
+[extension="doc"], [extension="docx"] {
+    background-image: url(images/doc.png);
+}
+[extension="pdf"]{
+    background-image: url(images/pdf.png);
+}
+[extension="webm"],[extension="mkv"],[extension="avi"],[extension="mov"],[extension="qt"],[extension="wmv"],[extension="rm"],[extension="rmvb"],[extension="mp4"],[extension="mpg"],[extension="mpeg"],[extension="3gp"]{
+    background-image: url(images/video.png);
+}
+[extension="jpg"],[extension="jpeg"],[extension="png"],[extension="gif"],[extension="bmp"]{
+    background-image: url(images/image.png);
 }
