@@ -2,7 +2,7 @@ html,
 body {
     width: 100%;
     height: 100%;
-    padding-top: 35px;
+    padding-top: 25px;
 }
 
 html {
@@ -56,7 +56,9 @@ li.iw-mSelected {
     z-index: 999;
 }
 /* END OF FILE MANAGER STYLES */
-
+.navbar{
+margin-bottom: none;
+}
 .navbar-brand img{
     width: 22px;
     height: auto;
