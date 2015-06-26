@@ -27,67 +27,7 @@ body * {
     position: relative;
 }
 
-.explorer .bg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-}
 /* FILE MANAGER STYLES */
-
-folder,
-file {
-    background-repeat: no-repeat;
-    background-position: center 5px;
-    background-size: 45px 45px;
-    font-size: 11px;
-    text-align: center;
-    font-weight: bold;
-    display: inline-block;
-    cursor: default;
-    width: 75px;
-    padding-top: 60px;
-    margin: 5px;
-    vertical-align: top;
-    border: 1px solid transparent;
-    position: relative;
-    box-sizing: border-box;
-}
-
-folder:hover,
-file:hover {
-    border-color: #CEE8FC;
-    background-color: #F1F7FC;
-}
-
-folder.selected,
-file.selected {
-    border-color: #96D1FC;
-    background-color: #E2F3FF;
-}
-
-folder {
-    background-image: url(../images/folder.png);
-}
-
-file {
-    background-image: url(../images/file.png);
-}
-
-file[extension] {
-    position: relative;
-}
-
-file[extension]:before {
-    font-size: 11px;
-    color: #fff;
-    content: attr(extension);
-    position: absolute;
-    top: 35px;
-    right: 22px;
-}
 
 .iw-mIcon {
     width: 15px;
