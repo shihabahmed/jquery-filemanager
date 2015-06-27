@@ -1,3 +1,7 @@
+.file-manager-window {
+
+}
+
 folder,
 file {
     background-repeat: no-repeat;
@@ -19,10 +23,12 @@ file {
 
 folder:hover,
 file:hover,
-folder.ui-selecting, file.ui-selecting {
+folder.ui-selecting,
+file.ui-selecting {
     border: 1px solid #CEE8FC;
     background-color: rgba(0, 139, 255, 0.06);
 }
+
 
 folder.ui-selected,
 file.ui-selected,
@@ -39,27 +45,24 @@ file {
     background-image: url(images/file.png);
 }
 
-/*file[extension] {
-    position: relative;
+.ui-draggable-dragging {
+    background-color: transparent !important;
+    border:none !important;
+    z-index: 999;
 }
 
-file[extension]:before {
-    font-size: 11px;
-    color: #fff;
-    content: attr(extension);
-    position: absolute;
-    top: 35px;
-    right: 22px;
-}*/
 [extension="doc"], [extension="docx"] {
     background-image: url(images/doc.png);
 }
-[extension="pdf"]{
+
+[extension="pdf"] {
     background-image: url(images/pdf.png);
 }
-[extension="webm"],[extension="mkv"],[extension="avi"],[extension="mov"],[extension="qt"],[extension="wmv"],[extension="rm"],[extension="rmvb"],[extension="mp4"],[extension="mpg"],[extension="mpeg"],[extension="3gp"]{
+
+[extension="webm"], [extension="mkv"], [extension="avi"], [extension="mov"], [extension="qt"], [extension="wmv"], [extension="rm"], [extension="rmvb"], [extension="mp4"], [extension="mpg"], [extension="mpeg"], [extension="3gp"] {
     background-image: url(images/video.png);
 }
-[extension="jpg"],[extension="jpeg"],[extension="png"],[extension="gif"],[extension="bmp"]{
+
+[extension="jpg"], [extension="jpeg"], [extension="png"], [extension="gif"], [extension="bmp"] {
     background-image: url(images/image.png);
 }

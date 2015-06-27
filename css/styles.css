@@ -30,6 +30,20 @@ body * {
 
 /* FILE MANAGER STYLES */
 
+
+.navbar {
+    margin-bottom: none;
+}
+
+.navbar-brand {
+    background-color: #e5e5e5;
+}
+
+.navbar-brand img {
+    width: 22px;
+    height: auto;
+}
+
 .iw-mIcon {
     width: 15px;
     height: 15px;
@@ -50,16 +64,5 @@ body * {
 li.iw-mSelected {
     background-color: lightblue;
 }
-.ui-draggable-dragging{
-    background-color: transparent !important;
-    border:none;
-    z-index: 999;
-}
+
 /* END OF FILE MANAGER STYLES */
-.navbar{
-margin-bottom: none;
-}
-.navbar-brand img{
-    width: 22px;
-    height: auto;
-}
