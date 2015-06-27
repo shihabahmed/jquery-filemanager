@@ -284,7 +284,6 @@ var fileManager = function(jsonData, wrapper) {
             fn.getSelection();
         });
 
-        //Calling context menu
         fn.initContextMenu();
 
     })(jQuery);

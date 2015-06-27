@@ -1,9 +1,11 @@
 .file-manager-window {
-
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
 }
 
-folder,
-file {
+.file-manager-window folder,
+.file-manager-window file {
     background-repeat: no-repeat;
     background-position: center 5px;
     background-size: 45px 45px;
@@ -21,48 +23,88 @@ file {
     box-sizing: border-box;
 }
 
-folder:hover,
-file:hover,
-folder.ui-selecting,
-file.ui-selecting {
+.file-manager-window folder:hover,
+.file-manager-window file:hover,
+.file-manager-window folder.ui-selecting,
+.file-manager-window file.ui-selecting {
     border: 1px solid #CEE8FC;
     background-color: rgba(0, 139, 255, 0.06);
 }
 
 
-folder.ui-selected,
-file.ui-selected,
-.ui-selectable-helper {
+.file-manager-window folder.ui-selected,
+.file-manager-window file.ui-selected,
+.file-manager-window .ui-selectable-helper {
     border: 1px solid #96D1FC;
     background-color: rgba(0, 149, 255, 0.11);
 }
 
-folder {
+.file-manager-window folder {
     background-image: url(images/folder.png);
 }
 
-file {
+.file-manager-window file {
     background-image: url(images/file.png);
 }
 
-.ui-draggable-dragging {
+.file-manager-window .ui-draggable-dragging {
     background-color: transparent !important;
     border:none !important;
     z-index: 999;
 }
 
-[extension="doc"], [extension="docx"] {
+.file-manager-window [extension="doc"], .file-manager-window [extension="docx"] {
     background-image: url(images/doc.png);
 }
 
-[extension="pdf"] {
+.file-manager-window [extension="pdf"] {
     background-image: url(images/pdf.png);
 }
 
-[extension="webm"], [extension="mkv"], [extension="avi"], [extension="mov"], [extension="qt"], [extension="wmv"], [extension="rm"], [extension="rmvb"], [extension="mp4"], [extension="mpg"], [extension="mpeg"], [extension="3gp"] {
+.file-manager-window [extension="webm"],
+.file-manager-window [extension="mkv"],
+.file-manager-window [extension="avi"],
+.file-manager-window [extension="mov"],
+.file-manager-window [extension="qt"],
+.file-manager-window [extension="wmv"],
+.file-manager-window [extension="rm"],
+.file-manager-window [extension="rmvb"],
+.file-manager-window [extension="mp4"],
+.file-manager-window [extension="mpg"],
+.file-manager-window [extension="mpeg"],
+.file-manager-window [extension="3gp"] {
     background-image: url(images/video.png);
 }
 
-[extension="jpg"], [extension="jpeg"], [extension="png"], [extension="gif"], [extension="bmp"] {
+.file-manager-window [extension="jpg"],
+.file-manager-window [extension="jpeg"],
+.file-manager-window [extension="png"],
+.file-manager-window [extension="gif"],
+.file-manager-window [extension="bmp"] {
     background-image: url(images/image.png);
 }
+
+/* context menu styles */
+
+.iw-mIcon {
+    width: 15px;
+    height: 15px;
+    left: 6px;
+    top: 4px;
+}
+
+.iw-contextMenu {
+    background-color: white;
+}
+
+.iw-contextMenu li {
+    font-size: 15px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+li.iw-mSelected {
+    background-color: lightblue;
+}
+
+/* end of context menu styles */

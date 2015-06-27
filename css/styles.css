@@ -22,14 +22,8 @@ body * {
     font-weight: 300;
 }
 
-.explorer {
-    height: 100%;
-    overflow-y: auto;
-    position: relative;
-}
 
 /* FILE MANAGER STYLES */
-
 
 .navbar {
     margin-bottom: none;
@@ -42,27 +36,6 @@ body * {
 .navbar-brand img {
     width: 22px;
     height: auto;
-}
-
-.iw-mIcon {
-    width: 15px;
-    height: 15px;
-    left: 6px;
-    top: 4px;
-}
-
-.iw-contextMenu {
-    background-color: white;
-}
-
-.iw-contextMenu li {
-    font-size: 15px;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-}
-
-li.iw-mSelected {
-    background-color: lightblue;
 }
 
 /* END OF FILE MANAGER STYLES */
