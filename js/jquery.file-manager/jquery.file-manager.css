@@ -34,7 +34,7 @@
 
 .file-manager-window folder.ui-selected,
 .file-manager-window file.ui-selected,
-.file-manager-window .ui-selectable-helper {
+.ui-selectable-helper {
     border: 1px solid #96D1FC;
     background-color: rgba(0, 149, 255, 0.11);
 }
