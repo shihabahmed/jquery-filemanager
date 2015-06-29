@@ -12,7 +12,7 @@ var doc, explorer, files,
                 name: 'refresh',
                 img: 'images/create.png',
                 title: 'create button',
-                func: function() {
+                fun: function() {
                     location.reload();
                 }
             }, {
