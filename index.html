@@ -19,7 +19,6 @@
     <!-- jquery file manager plugin -->
     <link media="all" rel="stylesheet" href="js/jquery.file-manager/jquery.file-manager.css" />
     <script src="js/jquery.file-manager/jquery.file-manager.js"></script>
-
     <script src="js/Services.js"></script>
     <script src="js/scripts.js"></script>
 </head>
@@ -43,7 +42,7 @@
                     <li>
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control nav-inp" placeholder="Search">
+                                <input type="text" class="form-control nav-inp fileSearchBox" placeholder="Search">
                             </div>
                         </form>
                     </li>
@@ -52,12 +51,12 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+        </ol>
     </nav>
-    <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-    </ol>
     <div class="explorer"></div>
 </body>
 

@@ -2,6 +2,8 @@
     height: 100%;
     overflow-y: auto;
     position: relative;
+    padding: 10px 0;
+    margin-top: 40px;
 }
 
 .file-manager-window folder,
@@ -19,13 +21,14 @@
     margin: 5px;
     vertical-align: top;
     border: 1px solid transparent;
-    position: relative;
+    /*position: relative;*/
     box-sizing: border-box;
 }
 
 .file-manager-window folder:hover,
 .file-manager-window file:hover,
 .file-manager-window folder.ui-selecting,
+.file-manager-window folder.drop-container,
 .file-manager-window file.ui-selecting {
     border: 1px solid #CEE8FC;
     background-color: rgba(0, 139, 255, 0.06);

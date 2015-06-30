@@ -1,119 +1,111 @@
 document.createElement('folder');
 document.createElement('file');
 
+var print = function(param) {
+    console.log(param);
+};
+
 var doc, explorer, files,
     folderTag, fileTag, tag,
+    searchBox,
     CTRL = false,
     CMND = false,
-    selection = [], fn = {},
+    selection = [],
+    fn = {},
     contextmenu = {
-        general: [
-            {
-                name: 'refresh',
-                img: 'images/create.png',
-                title: 'create button',
+        general: [{
+            name: 'refresh',
+            img: 'images/create.png',
+            title: 'create button',
+            fun: function() {
+                location.reload();
+            }
+        }, {
+            name: 'sort',
+            img: 'images/update.png',
+            title: 'update button',
+            subMenu: [{
+                name: 'sort by name',
+                title: 'It will merge row',
+                img: 'images/merge.png',
                 fun: function() {
-                    location.reload();
+                    fn.renderSorted(['type', 'name', 'extension'], true);
                 }
             }, {
-                name: 'sort',
-                img: 'images/update.png',
-                title: 'update button',
-                subMenu: [
-                    {
-                        name: 'sort by name',
-                        title: 'It will merge row',
-                        img: 'images/merge.png',
-                        fun: function() {
-                            fn.renderSorted(['type', 'name', 'extension'], true);
-                        }
-                    }, {
-                        name: 'sort by file type',
-                        title: 'It will replace row',
-                        img: 'images/replace.png',
-                        fun: function() {
-                            fn.renderSorted(['type', 'extension', 'name'], true);
-                        }
-                    }
-                ]
-            }
-        ],
+                name: 'sort by file type',
+                title: 'It will replace row',
+                img: 'images/replace.png',
+                fun: function() {
+                    fn.renderSorted(['type', 'extension', 'name'], true);
+                }
+            }]
+        }],
 
-        item: [
-            {
-                name: 'create',
-                img: 'images/create.png',
-                title: 'create button',
+        item: [{
+            name: 'create',
+            img: 'images/create.png',
+            title: 'create button',
+            fun: function() {
+                alert('i am add button');
+            }
+        }, {
+            name: 'update',
+            img: 'images/update.png',
+            title: 'update button',
+            subMenu: [{
+                name: 'merge',
+                title: 'It will merge row',
+                img: 'images/merge.png',
                 fun: function() {
-                    alert('i am add button');
+                    alert('It will merge row');
                 }
             }, {
-                name: 'update',
-                img: 'images/update.png',
-                title: 'update button',
-                subMenu: [
-                    {
-                        name: 'merge',
-                        title: 'It will merge row',
-                        img: 'images/merge.png',
-                        fun: function() {
-                            alert('It will merge row');
-                        }
-                    }, {
-                        name: 'replace',
-                        title: 'It will replace row',
-                        img: 'images/replace.png',
-                        subMenu: [
-                            {
-                                name: 'replace top 100',
-                                img: 'images/top.png',
-                                fun: function() {
-                                    alert('It will replace top 100 rows');
-                                }
-                            }, {
-                                name: 'replace all',
-                                img: 'images/all.png',
-                                fun: function() {
-                                    alert('It will replace all rows');
-                                }
-                            }
-                        ]
+                name: 'replace',
+                title: 'It will replace row',
+                img: 'images/replace.png',
+                subMenu: [{
+                    name: 'replace top 100',
+                    img: 'images/top.png',
+                    fun: function() {
+                        alert('It will replace top 100 rows');
                     }
-                ]
+                }, {
+                    name: 'replace all',
+                    img: 'images/all.png',
+                    fun: function() {
+                        alert('It will replace all rows');
+                    }
+                }]
+            }]
+        }, {
+            name: 'delete',
+            img: 'images/delete.png',
+            title: 'delete button',
+            subMenu: [{
+                'name': 'soft delete',
+                img: 'images/soft_delete.png',
+                fun: function() {
+                    alert('You can recover back');
+                }
             }, {
-                name: 'delete',
-                img: 'images/delete.png',
-                title: 'delete button',
-                subMenu: [
-                    {
-                        'name': 'soft delete',
-                        img: 'images/soft_delete.png',
-                        fun: function() {
-                            alert('You can recover back');
-                        }
-                    }, {
-                        'name': 'hard delete',
-                        img: 'images/hard_delete.png',
-                        fun: function() {
-                            alert('It will delete permanently');
-                        }
-                    }
-                ]
-            }
-        ]
+                'name': 'hard delete',
+                img: 'images/hard_delete.png',
+                fun: function() {
+                    alert('It will delete permanently');
+                }
+            }]
+        }]
     };
 
 fn = (function(j) {
     return {
         initContextMenu: function() {
             explorer.find('.bg').contextMenu(contextmenu.general, {
-                triggerOn: 'click',
-                mouseClick: 'right'
+                triggerOn: 'contextmenu'
             });
 
-            j('folder, file').contextMenu(contextmenu.item, {
-                triggerOn: 'click',
-                mouseClick: 'right'
+            explorer.find('folder, file').contextMenu(contextmenu.item, {
+                triggerOn: 'contextmenu'
             });
         },
 
@@ -121,12 +113,13 @@ fn = (function(j) {
             var preSelectedItems = [];
             el.selectable({
                 filter: 'file, folder',
-                selected: function( event, ui ) {
+                distance: 1, 
+                selected: function(event, ui) {
                     preSelectedItems.push(j(ui.selected));
                 },
-                stop: function( event, ui ) {
+                stop: function(event, ui) {
                     if (CTRL || CMND) {
-                        for(var i = 0; i < preSelectedItems.length; i++) {
+                        for (var i = 0; i < preSelectedItems.length; i++) {
                             var item = j(preSelectedItems[i]);
                             if (item.hasClass('selected')) {
                                 item.removeClass('ui-selected').removeClass('selected');
@@ -137,7 +130,6 @@ fn = (function(j) {
                     }
 
                     preSelectedItems = [];
-
                     fn.getSelection();
                 }
             });
@@ -147,7 +139,8 @@ fn = (function(j) {
             el.draggable({
                 revert: true,
                 delay: 200,
-                drag: function (event, ui) {
+                containment: "parent",
+                drag: function(event, ui) {
                     var item = ui.helper;
                     item.siblings().removeClass('ui-selected').removeClass('selected');
                     item.addClass('ui-selected').addClass('selected');
@@ -157,7 +150,7 @@ fn = (function(j) {
 
         initDroppable: function(el) {
             el.droppable({
-                hoverClass: 'selected',
+                hoverClass: 'drop-container',
                 drop: function(event, ui) {
                     fn.drop(j(ui.draggable[0]), j(this));
                 }
@@ -172,8 +165,6 @@ fn = (function(j) {
                 item = selectedItems.eq(a);
                 selection.push(item.attr('id'));
             }
-            console.clear();
-            console.log(selection);
         },
 
         sort: function(array, propArray, asc) {
@@ -220,13 +211,10 @@ fn = (function(j) {
                 explr.append(tag);
             }
 
-            fn.initContextMenu();
-
             fn.initSelectable(explr);
-
             fn.initDraggable(j('file, folder'));
-
             fn.initDroppable(j('folder'));
+            fn.initContextMenu();
         },
 
         renderSorted: function(sortBy, asc) {
@@ -235,9 +223,9 @@ fn = (function(j) {
         },
 
         drop: function(item, container) {
-            console.clear();
+            /*console.clear();
             console.log(item.data());
-            console.log(container.data());
+            console.log(container.data());*/
         }
     }
 })(jQuery);
@@ -260,6 +248,30 @@ var fileManager = function(jsonData, wrapper) {
 
         folderTag = j('<folder></folder>');
         fileTag = j('<file></file>');
+        searchBox = j('.fileSearchBox');
+
+        explorer.delegate('.bg', 'click', function() {
+            searchBox.blur();
+            explorer.find('.bg, folder, file').contextMenu('close');
+        });
+
+        doc.delegate('.fileSearchBox', 'keyup', function() {
+            var key = j(this).val(),
+                contents = j('file, folder').show();
+            if (key == '' || key == undefined) {
+                contents.show();
+            } else {
+                contents.not(':contains("' + key + '")').hide();
+            }
+        }).delegate('.fileSearchBox', 'focusin', function() {
+            searchBox.animate({
+                width: "350px"
+            }, 500);
+        }).delegate('.fileSearchBox', 'focusout', function() {
+            searchBox.animate({
+                width: "172px"
+            }, 500);
+        });
 
         doc.delegate('folder, file', 'click', function() {
             var el = j(this);
