@@ -98,16 +98,24 @@
 
 .iw-contextMenu {
     background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    border: 1px solid rgba(61,70,77,0.1);
 }
 
 .iw-contextMenu li {
-    font-size: 15px;
+    font-size: 14px;
     color: black;
     font-family: 'Roboto', sans-serif;
+    padding: 6px 40px;
+    border:none;
+}
+.iw-contextMenu li:last-child{
+    border-bottom: none;
 }
 
 li.iw-mSelected {
-    background-color: lightblue;
+    background-color: #e3f2ff;
 }
 
 /* end of context menu styles */

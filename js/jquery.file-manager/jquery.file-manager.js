@@ -42,59 +42,38 @@ var doc, explorer, files,
         }],
 
         item: [{
-            name: 'create',
-            img: 'images/create.png',
-            title: 'create button',
+            name: 'Download',
+            img: '',
+            title: 'delete file or folder',
             fun: function() {
                 alert('i am add button');
             }
         }, {
-            name: 'update',
-            img: 'images/update.png',
-            title: 'update button',
-            subMenu: [{
-                name: 'merge',
-                title: 'It will merge row',
-                img: 'images/merge.png',
-                fun: function() {
-                    alert('It will merge row');
-                }
-            }, {
-                name: 'replace',
-                title: 'It will replace row',
-                img: 'images/replace.png',
-                subMenu: [{
-                    name: 'replace top 100',
-                    img: 'images/top.png',
-                    fun: function() {
-                        alert('It will replace top 100 rows');
-                    }
-                }, {
-                    name: 'replace all',
-                    img: 'images/all.png',
-                    fun: function() {
-                        alert('It will replace all rows');
-                    }
-                }]
-            }]
-        }, {
-            name: 'delete',
-            img: 'images/delete.png',
-            title: 'delete button',
-            subMenu: [{
-                'name': 'soft delete',
-                img: 'images/soft_delete.png',
-                fun: function() {
-                    alert('You can recover back');
-                }
-            }, {
-                'name': 'hard delete',
-                img: 'images/hard_delete.png',
-                fun: function() {
-                    alert('It will delete permanently');
-                }
-            }]
-        }]
+            name: 'Delete..',
+            img: '',
+            title: 'delete',
+           
+        },
+        {
+            name: 'Rename..',
+            img: '',
+            title: 'Rename',
+           
+        },
+        {
+            name: 'Paste..',
+            img: '',
+            title: 'Paste',
+           
+        },
+        {
+            name: 'Copy..',
+            img: '',
+            title: 'Copy',
+           
+        }
+
+        ]
     };
 
 fn = (function(j) {
@@ -102,6 +81,7 @@ fn = (function(j) {
         renderNav: function(el) {
             j.get('./js/jquery.file-manager/nav-template.htm', function(nav, textStatus, jqXHR) {
                 el.before(nav);
+                searchBox = j('.fileSearchBox');
             });
         },
 
@@ -195,8 +175,6 @@ fn = (function(j) {
         },
 
         renderExplorer: function(explr, filesArray) {
-            fn.renderNav(explr);
-
             explr.html('<div class="bg" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0;"></div>');
 
             for (var i = 0; i < filesArray.length; i++) {
@@ -253,10 +231,11 @@ var fileManager = function(jsonData, wrapper) {
         });
 
         explorer = j(wrapper).addClass('file-manager-window');
+        fn.renderNav(explorer);
 
         folderTag = j('<folder></folder>');
         fileTag = j('<file></file>');
-        searchBox = j('.fileSearchBox');
+
 
         explorer.delegate('.bg', 'click', function() {
             searchBox.blur();
@@ -272,11 +251,11 @@ var fileManager = function(jsonData, wrapper) {
                 contents.not(':contains("' + key + '")').hide();
             }
         }).delegate('.fileSearchBox', 'focusin', function() {
-            searchBox.animate({
+            j(this).animate({
                 width: "350px"
             }, 500);
         }).delegate('.fileSearchBox', 'focusout', function() {
-            searchBox.animate({
+            j(this).animate({
                 width: "172px"
             }, 500);
         });
@@ -292,7 +271,9 @@ var fileManager = function(jsonData, wrapper) {
 
             fn.getSelection();
         });
-
+        j(document).delegate('.toolbar-new-folder','click',function(){
+            var person = prompt("Enter the folder name", "New folder");
+        });
         fn.sort(files, ['type'], true);
 
         fn.renderExplorer(explorer, files);
