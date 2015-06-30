@@ -99,6 +99,12 @@ var doc, explorer, files,
 
 fn = (function(j) {
     return {
+        renderNav: function(el) {
+            j.get('./js/jquery.file-manager/nav-template.htm', function(nav, textStatus, jqXHR) {
+                el.before(nav);
+            });
+        },
+
         initContextMenu: function() {
             explorer.find('.bg').contextMenu(contextmenu.general, {
                 triggerOn: 'contextmenu'
@@ -113,7 +119,7 @@ fn = (function(j) {
             var preSelectedItems = [];
             el.selectable({
                 filter: 'file, folder',
-                distance: 1, 
+                distance: 1,
                 selected: function(event, ui) {
                     preSelectedItems.push(j(ui.selected));
                 },
@@ -189,6 +195,8 @@ fn = (function(j) {
         },
 
         renderExplorer: function(explr, filesArray) {
+            fn.renderNav(explr);
+
             explr.html('<div class="bg" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0;"></div>');
 
             for (var i = 0; i < filesArray.length; i++) {
