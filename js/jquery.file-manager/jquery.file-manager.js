@@ -274,6 +274,15 @@ var fileManager = function(jsonData, wrapper) {
         j(document).delegate('.toolbar-new-folder','click',function(){
             var person = prompt("Enter the folder name", "New folder");
         });
+
+        j(document).delegate('.toolbar-gridview','click',function(){
+            j('.explorer').removeClass('list-view');
+        });
+
+        j(document).delegate('.toolbar-listview','click',function(){
+            j('.explorer').addClass('list-view');
+        });
+
         fn.sort(files, ['type'], true);
 
         fn.renderExplorer(explorer, files);

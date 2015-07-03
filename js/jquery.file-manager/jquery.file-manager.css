@@ -86,6 +86,15 @@
 .file-manager-window [extension="bmp"] {
     background-image: url(images/image.png);
 }
+.list-view folder, .list-view file {
+  width: 23%;
+  padding-top: 0;
+  padding-left: 30px;
+  background-position: 5px center;
+  background-size: 18px;
+  line-height: 26px;
+  text-align: left;
+}
 
 /* context menu styles */
 
@@ -117,5 +126,7 @@
 li.iw-mSelected {
     background-color: #e3f2ff;
 }
+
+
 
 /* end of context menu styles */
