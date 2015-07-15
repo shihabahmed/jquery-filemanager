@@ -21,6 +21,7 @@
     margin: 5px;
     vertical-align: top;
     border: 1px solid transparent;
+    word-wrap:break-word;
     /*position: relative;*/
     box-sizing: border-box;
 }

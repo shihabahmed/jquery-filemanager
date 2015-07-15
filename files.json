@@ -29,7 +29,7 @@
 	},
 	{
 		"id": 5,
-		"name": "file2",
+		"name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
 		"type": "file",
 		"extension": "docx",
 		"path": "/file2.docx"
@@ -43,7 +43,7 @@
 	},
 	{
 		"id": 7,
-		"name": "folder4",
+		"name": "this is a folder and it is a test name",
 		"type": "directory",
 		"extension": "",
 		"path": "/folder4"
