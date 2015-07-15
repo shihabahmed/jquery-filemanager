@@ -181,13 +181,14 @@ fn = (function(j) {
                 var file = filesArray[i];
                 if (file.type == 'directory') {
                     tag = folderTag.clone();
-                    excerpt(tag,file.name, 10, null);
+                    tag.html(file.name);
                 } else if (file.type == 'file') {
                     tag = fileTag.clone();
                     tag.attr({
                         extension: file.extension
                     });
-                    excerpt(tag,file.name, 10, file.extension);
+                    tag.html(file.name + '.' + file.extension);
+                    j(tag).prop('title',file.name);
                 }
 
                 tag.attr({
@@ -297,16 +298,4 @@ var fileManager = function(jsonData, wrapper) {
         fn.initContextMenu();
 
     })(jQuery);
-}
-
-var excerpt = function(selector, str, len, ext){
-    
-$(selector).prop('title', str);  
-    
-var excerptedStr = str.slice(0, len); 
-    excerptedStr+= "..";
-    if(ext!=null){
-        excerptedStr+= ext;
-    }
-    $(selector).html(excerptedStr)
 }
