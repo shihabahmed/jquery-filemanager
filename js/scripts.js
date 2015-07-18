@@ -5,7 +5,8 @@
         j.ajax({
             url: './files.json'
         }).done(function(files, textStatus, jqXHR) {
-            fileManager(files, '.explorer');
+            //fileManager(files, '.explorer');
+            j('.explorer').fileManager(files);
         }).fail(function(data, textStatus, jqXHR) {});
 
         j('.nav-inp').focusin(function() {
