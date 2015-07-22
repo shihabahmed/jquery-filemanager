@@ -1,5 +1,4 @@
-﻿;
-(function(j) {
+﻿;(function(j) {
     j(function() {
 
         j.ajax({
@@ -14,6 +13,7 @@
                 width: "350px"
             }, 700);
         });
+
         j('.nav-inp').focusout(function() {
             j(this).animate({
                 width: "172px"
