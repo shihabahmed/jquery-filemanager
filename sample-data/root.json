@@ -1,0 +1,103 @@
+[{
+    "id": 1,
+    "name": "folder1",
+    "type": "directory",
+    "extension": "",
+    "path": "/sample-data/folder1.json"
+}, {
+    "id": 2,
+    "name": "folder2",
+    "type": "directory",
+    "extension": "",
+    "path": "/sample-data/folder2.json"
+}, {
+    "id": 3,
+    "name": "folder3",
+    "type": "directory",
+    "extension": "",
+    "path": "/sample-data/folder2.json"
+}, {
+    "id": 4,
+    "name": "file1",
+    "type": "file",
+    "extension": "doc",
+    "path": "/sample-data/file1.doc"
+}, {
+    "id": 5,
+    "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
+    "type": "file",
+    "extension": "docx",
+    "path": "/sample-data/file2.docx"
+}, {
+    "id": 6,
+    "name": "pdf1",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/sample-data/pdf1.pdf"
+}, {
+    "id": 7,
+    "name": "this is a folder and it is a test name",
+    "type": "directory",
+    "extension": "",
+    "path": "/sample-data/folder2.json"
+}, {
+    "id": 8,
+    "name": "folder5",
+    "type": "directory",
+    "extension": "",
+    "path": "/sample-data/folder2.json"
+}, {
+    "id": 9,
+    "name": "folder6",
+    "type": "directory",
+    "extension": "",
+    "path": "/sample-data/folder2.json"
+}, {
+    "id": 10,
+    "name": "file4",
+    "type": "file",
+    "extension": "doc",
+    "path": "/sample-data/file4.doc"
+}, {
+    "id": 11,
+    "name": "file5",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/sample-data/file5.pdf"
+}, {
+    "id": 12,
+    "name": "pdf2",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/sample-data/pdf2.pdf"
+}, {
+    "id": 13,
+    "name": "file3",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/sample-data/file3.pdf"
+}, {
+    "id": 14,
+    "name": "my movie 1",
+    "type": "file",
+    "extension": "mp4",
+    "path": "/sample-data/my%20movie%201.pdf"
+}, {
+    "id": 15,
+    "name": "Birthday",
+    "type": "file",
+    "extension": "avi",
+    "path": "/sample-data/Birthday.avi"
+}, {
+    "id": 16,
+    "name": "Birthday",
+    "type": "file",
+    "extension": "png",
+    "path": "/sample-data/Birthday.png"
+}, {
+    "id": 17,
+    "name": "way-to-nature",
+    "type": "file",
+    "extension": "jpg",
+    "path": "/sample-data/way-to-nature.jpg"
+}]

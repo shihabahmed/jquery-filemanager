@@ -1,0 +1,37 @@
+[{
+    "id": 6,
+    "name": "pdf1",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/pdf1.pdf"
+}, {
+    "id": 12,
+    "name": "pdf2",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/pdf2.pdf"
+}, {
+    "id": 13,
+    "name": "file3",
+    "type": "file",
+    "extension": "pdf",
+    "path": "/file3.pdf"
+}, {
+    "id": 14,
+    "name": "my movie 1",
+    "type": "file",
+    "extension": "mp4",
+    "path": "/my%20movie%201.pdf"
+}, {
+    "id": 15,
+    "name": "Birthday",
+    "type": "file",
+    "extension": "avi",
+    "path": "/Birthday.avi"
+}, {
+    "id": 16,
+    "name": "Birthday",
+    "type": "file",
+    "extension": "png",
+    "path": "/Birthday.png"
+}]

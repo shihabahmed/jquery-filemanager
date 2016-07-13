@@ -177,23 +177,16 @@ var print = function(param) {
             bindDoubleClick: function(explorer) {
                 j('folder').dblclick(function(e) {
                     var folder = j(this);
-                    window.location = folder.data().path;
+                    j.ajax({
+                        url: folder.data().path
+                    }).done(function(files, textStatus, jqXHR) {
+                        explorer.fileManager(files);
+                    }).fail(function(data, textStatus, jqXHR) {});
                 });
 
                 j('file').dblclick(function(e) {
-                    var file = j(this),
-                        fileData = file.data(),
-                        win = window.open(fileData.path);
-
-                    var setWindowTitle = function () {
-                        if (win.document) {
-                            win.document.title = fileData.name;
-                        } else {
-                            setTimeout(setWindowTitle, 10);
-                        }
-                    };
-
-                    setWindowTitle();
+                    var file = j(this);
+                    window.location = file.data().path;
                 });
             },
 
