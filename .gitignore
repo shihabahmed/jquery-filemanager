@@ -45,9 +45,6 @@ Temporary Items
 # Other miscellaneous items created by editors/plugins
 node_modules
 
-package.json
-server.js
-
 -asterisk
 
 typings
